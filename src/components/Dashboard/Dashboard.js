@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Dashboard.module.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   function Logout() {
-    sessionStorage.clear();
-    localStorage.clear();
+    localStorage.removeItem("loginToken");
   }
 
   return (
@@ -13,7 +13,9 @@ function Dashboard() {
         <h1>
           <strong>DASHBOARD</strong>
         </h1>
-        <button onClick={Logout}>Logout</button>
+        <Link to="/login">
+          <button onClick={Logout}>Logout</button>
+        </Link>
       </div>
     </>
   );

@@ -1,7 +1,20 @@
-import "./App.css";
+import styles from "./App.module.css";
+import { Outlet, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
-  return <div className="App"></div>;
+  const isHomePage = useLocation().pathname === "/";
+  return (
+    <>
+      <div className={styles.App}>
+        <nav className={styles.navBar}>
+          <Link to="/login">Login</Link>
+        </nav>
+        <Outlet />
+        {isHomePage && <h1>BEM VINDO AO SEU DASHBOARD INFFEL ONBOARD!!</h1>}
+      </div>
+    </>
+  );
 }
 
 export default App;

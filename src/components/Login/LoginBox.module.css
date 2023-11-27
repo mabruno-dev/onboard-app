@@ -13,6 +13,23 @@
 
     opacity: 1;
   }
+
+  
+  button {
+    width: 50%;
+    padding: 15px;
+    background-color: #2F8290;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 1s;
+  }
+  
+  button:hover {
+    background-color: #21626D;
+  }
   
   h1 {
     text-align: center;
@@ -27,7 +44,7 @@
     color: #555;
   }
   
-  input {
+  .input {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
@@ -35,21 +52,5 @@
     border: 1px solid #a7a3a3;
     border-radius: 5px;
     box-sizing: border-box;
-  }
-  
-  button {
-    width: 50%;
-    padding: 15px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 1s;
-  }
-  
-  button:hover {
-    background-color: #2f7b33;
   }
   

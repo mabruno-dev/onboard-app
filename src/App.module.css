@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: #4C8F9D;
+}
+
+.navBar{
+  background-color: #21626D;
+  padding: 10px;
+  display: flex;
+  justify-content: right;
+}
+
+.navBar a{
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  border: 1px solid white;
+  margin-right: 10px;
+  transition: 1s;
+}
+
+.navBar a:hover{
+  background-color: white;
+  color: #2F8290;
+}

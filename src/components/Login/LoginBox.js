@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LoginBox.module.css";
+import { useNavigate } from "react-router-dom";
 
-function LoginBox({ show }) {
+function LoginBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loginSuccess) {
+      navigate("/dashboard");
+    }
+  }, [loginSuccess, navigate]);
 
   const login = async () => {
     try {
@@ -18,9 +26,11 @@ function LoginBox({ show }) {
         // Login successful, you can handle the response accordingly
         const data = await response.json();
         localStorage.setItem("loginToken", data.accessToken);
+        setLoginSuccess(true);
       } else {
         // Handle login error
         console.error("Login failed");
+        setLoginSuccess(false);
       }
     } catch (error) {
       console.error("Error during login", error);
@@ -34,8 +44,10 @@ function LoginBox({ show }) {
           <strong>Email:</strong>{" "}
         </label>
         <input
+          className={styles.input}
           type="text"
           value={email}
+          placeholder="user@example.com"
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
@@ -43,12 +55,16 @@ function LoginBox({ show }) {
           <strong>Password:</strong>{" "}
         </label>
         <input
+          className={styles.input}
           type="password"
           value={password}
+          placeholder="string"
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button onClick={login}>Acess Page</button>
+        <button className={styles.button} onClick={login}>
+          Access Page
+        </button>
       </div>
     </>
   );
