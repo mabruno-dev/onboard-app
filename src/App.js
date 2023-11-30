@@ -9,6 +9,7 @@ function App() {
       <div className={styles.App}>
         <nav className={styles.navBar}>
           <Link to="/login">Login</Link>
+          <Link to="/">Home</Link>
         </nav>
         <Outlet />
         {isHomePage && <h1>BEM VINDO AO SEU DASHBOARD INFFEL ONBOARD!!</h1>}

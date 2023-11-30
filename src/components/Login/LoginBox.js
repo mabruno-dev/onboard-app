@@ -27,6 +27,7 @@ function LoginBox() {
         const data = await response.json();
         localStorage.setItem("loginToken", data.accessToken);
         setLoginSuccess(true);
+        console.log(data.accessToken);
       } else {
         // Handle login error
         console.error("Login failed");
