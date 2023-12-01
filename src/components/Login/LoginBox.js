@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
 import styles from "./LoginBox.module.css";
 import { useNavigate } from "react-router-dom";
+import eyeCloseImage from "./icons/eye-close.png";
+import eyeOpenImage from "./icons/eye-open.png";
 
 function LoginBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginSuccess, setLoginSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [imgSrc, setImgSrc] = useState(eyeCloseImage);
+  const [inputClass, setInputClass] = useState(styles.input);
+
+  function imgClick() {
+    setShowPassword(!showPassword);
+    setImgSrc(showPassword ? eyeCloseImage : eyeOpenImage);
+  }
+
   const navigate = useNavigate();
   useEffect(() => {
     if (loginSuccess) {
@@ -27,11 +38,10 @@ function LoginBox() {
         const data = await response.json();
         localStorage.setItem("loginToken", data.accessToken);
         setLoginSuccess(true);
-        console.log(data.accessToken);
       } else {
         // Handle login error
-        console.error("Login failed");
         setLoginSuccess(false);
+        setInputClass(styles.invalid);
       }
     } catch (error) {
       console.error("Error during login", error);
@@ -41,27 +51,36 @@ function LoginBox() {
     <>
       <div className={styles.boxContent}>
         <h1>LOGIN</h1>
-        <label>
+        {/* <label>
           <strong>Email:</strong>{" "}
-        </label>
+        </label> */}
         <input
-          className={styles.input}
+          className={inputClass}
           type="text"
           value={email}
-          placeholder="user@example.com"
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
-        <label>
+        {/* <label>
           <strong>Password:</strong>{" "}
-        </label>
-        <input
-          className={styles.input}
-          type="password"
-          value={password}
-          placeholder="string"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        </label> */}
+        <div className="ShowPassword">
+          <input
+            className={inputClass}
+            type={showPassword ? "text" : "password"}
+            value={password}
+            placeholder="Senha"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <img
+            src={imgSrc}
+            alt="eye-close"
+            onClick={imgClick}
+            oncli
+            className={styles.showPasswordIcon}
+          />
+        </div>
         <br />
         <button className={styles.button} onClick={login}>
           Access Page

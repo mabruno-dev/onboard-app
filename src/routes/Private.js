@@ -24,10 +24,8 @@ export function PrivateRoute({ children }) {
         if (response.ok) {
           // Validation Token successful, you can handle the response accordingly
           setUser(true);
-          console.log("UHUUUL");
         } else {
           setUser(false);
-          console.log("merda");
         }
       } catch (error) {
         console.error("Error during token validation", error);

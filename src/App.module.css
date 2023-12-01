@@ -1,5 +1,11 @@
+@font-face {
+  font-family: Poppins-Light;
+  src: url('/src/fonts/poppins/Poppins-Light.ttf');
+}
+
 .App {
   text-align: center;
+  font: normal 5pt Poppins-Light;
 }
 
 body{
@@ -20,6 +26,7 @@ body{
   border: 1px solid white;
   margin-right: 10px;
   transition: 1s;
+  font: normal 13pt Poppins-Light;
 }
 
 .navBar a:hover{
