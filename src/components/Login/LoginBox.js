@@ -7,7 +7,7 @@ import eyeOpenImage from "./icons/eye-open.png";
 function LoginBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginSuccess, setLoginSuccess] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [imgSrc, setImgSrc] = useState(eyeCloseImage);
   const [inputClass, setInputClass] = useState(styles.input);
@@ -36,7 +36,7 @@ function LoginBox() {
       if (response.ok) {
         // Login successful, you can handle the response accordingly
         const data = await response.json();
-        localStorage.setItem("loginToken", data.accessToken);
+        localStorage.setItem("loginToken", data.access_token);
         setLoginSuccess(true);
       } else {
         // Handle login error
@@ -65,7 +65,7 @@ function LoginBox() {
         {/* <label>
           <strong>Password:</strong>{" "}
         </label> */}
-        <div className="ShowPassword">
+        <div>
           <input
             className={inputClass}
             type={showPassword ? "text" : "password"}
@@ -77,7 +77,6 @@ function LoginBox() {
             src={imgSrc}
             alt="eye-close"
             onClick={imgClick}
-            oncli
             className={styles.showPasswordIcon}
           />
         </div>

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: Jost-Medium;
+    src: url('/src/fonts/jost/static/Jost-Medium.ttf');
+  }
+
+  @font-face {
+    font-family: Poppins-Light;
+    src: url('/src/fonts/poppins/Poppins-Light.ttf');
+  }
+
+.ErrorStyle{
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 50%;
+    align-items: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgb(23, 23, 23);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ErrorStyle h1{
+    font: normal 25pt Jost-Medium;
+}
+
+.ErrorStyle p{
+    font: normal 15pt Poppins-Medium;
+}
+
+.ErrorStyle img{
+    position: relative;
+    align-items: center;
+    padding: 5px;
+}

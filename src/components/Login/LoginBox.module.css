@@ -23,39 +23,6 @@
 
     opacity: 1;
   }
-
-  
-  button {
-    width: 50%;
-    padding: 15px;
-    background-color: #2F8290;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 1s;
-    font: normal 14pt Poppins-Light;
-  }
-  
-  button:hover {
-    background-color: #21626D;
-  }
-  
-  h1 {
-    font: normal 25pt Jost-Medium;
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-  
-  label {
-    font: normal 15pt Poppins;
-    display: block;
-    margin-top: 15px;
-    color: #555;
-  }
   
   .input {
     width: 100%;
@@ -79,14 +46,15 @@
     font: normal 12pt Poppins-Light;
   }
   .showPassword{
-    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
   }
   .showPasswordIcon {
     width: 30px;
-    padding: 0px;
     position: absolute;
-    right: 45px;
-    top: 61%;
-    transform: translateY(-50%);
+    right: 30px;
+    transform: translate(-50%, -50%);
+    top: 59%;
     cursor: pointer;
   }

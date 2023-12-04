@@ -5,11 +5,42 @@
 
 .App {
   text-align: center;
-  font: normal 5pt Poppins-Light;
 }
 
 body{
   background-color: #4C8F9D;
+}
+
+button {
+  width: 50%;
+  padding: 15px;
+  background-color: #2F8290;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 1s;
+  font: normal 14pt Poppins-Light;
+}
+
+button:hover {
+  background-color: #21626D;
+}
+
+h1 {
+  font: normal 25pt Jost-Medium;
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+label {
+  font: normal 15pt Poppins;
+  display: block;
+  margin-top: 15px;
+  color: #555;
 }
 
 .navBar{
