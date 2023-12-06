@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 export function PrivateRoute({ children }) {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const validateToken = async () => {
       try {
         const token = localStorage.getItem("loginToken");
-        console.log(token);
         const response = await fetch(
           "https://inffel.sytes.net/auth/infoUsuario",
           {
@@ -21,12 +20,8 @@ export function PrivateRoute({ children }) {
             },
           }
         );
-
         if (response.ok) {
-          // Validation Token successful, you can handle the response accordingly
-          console.log("oioioioioi");
           setUser(true);
-          console.log("foi");
         } else {
           setUser(false);
         }
@@ -37,6 +32,10 @@ export function PrivateRoute({ children }) {
 
     validateToken();
   }, []);
+
+  if (user === null) {
+    return null;
+  }
 
   return user ? children : <Navigate to="/login" />;
 }
